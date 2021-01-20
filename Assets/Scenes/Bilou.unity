@@ -668,7 +668,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050898553}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.68, z: -0}
+  m_LocalPosition: {x: -0, y: -2.41, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1153898045}
@@ -1591,6 +1591,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet: {fileID: 8163471668652933576, guid: a6c361fff66920947ba399a26e7643e6, type: 3}
   Canon: {fileID: 1050898554}
+  enemyPosition: {x: 0, y: 0, z: 0}
+  bulletSpeed: 10
 --- !u!54 &2100296403
 Rigidbody:
   m_ObjectHideFlags: 0
