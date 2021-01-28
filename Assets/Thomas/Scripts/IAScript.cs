@@ -5,20 +5,34 @@ using UnityEngine;
 public class IAScript : MonoBehaviour
 {
     UnityEngine.AI.NavMeshAgent agent;
-    public Transform Ball;
-    public Transform goal;
-    // Start is called before the first frame update
+    Transform player;
+    private float distance;
+    public float HowClose;
+    public Animator animator;
+    
+    private bool EnemiSee = false;
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         agent=this.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        agent.speed = 14f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 ballToGoal = goal.position - Ball.position;
+        distance = Vector3.Distance(player.position,transform.position);
+       
+       if(distance <= HowClose)
+        {
+            agent.SetDestination(player.position);
+            EnemiSee = true;
+        }
 
-        agent.SetDestination(Ball.position);
+        if(distance <= 1.5f)
+        {
+
+        }
+        animator.SetBool("ENEMIMOVE",EnemiSee);
+
     }
 }
