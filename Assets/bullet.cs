@@ -20,6 +20,11 @@ public class bullet : MonoBehaviour
     void OnCollisionEnter ( Collision other )
     {
 
+        if ( other.gameObject.tag == "Enemy" )
+        {
+            Destroy(other.gameObject);
+        }
+
         Destroy(gameObject);
 
     }

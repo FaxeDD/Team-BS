@@ -22,7 +22,7 @@ void Update()
             {
                 enemyPosition = hit.transform.position;
                 Shoot();
-                //Debug.Log("tst");
+                Debug.Log("tst");
             }
         }
     }
