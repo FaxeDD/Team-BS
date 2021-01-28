@@ -5,8 +5,7 @@ using UnityEngine;
 public class IAScript : MonoBehaviour
 {
     UnityEngine.AI.NavMeshAgent agent;
-    public Transform player;
-    public Transform goal;
+    Transform player;
     private float distance;
     public float HowClose;
     public Animator animator;
