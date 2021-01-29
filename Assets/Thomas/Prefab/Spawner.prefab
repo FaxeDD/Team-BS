@@ -109,4 +109,4 @@ MonoBehaviour:
   Spawner: {fileID: 0}
   theEnemi: {fileID: 1409697761143205342, guid: dc4a81235ab9690419347ae4d4287361,
     type: 3}
-  EnemiCount: 0
+  EnemiCount: 9

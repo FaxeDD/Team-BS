@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
+
+    public AudioSource playerTouched;
+
+    private ClickToMove click;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerTouched = GameObject.Find("playerTouched").GetComponent<AudioSource>();
+        click = GameObject.Find("player").GetComponent<ClickToMove>();
     }
 
     // Update is called once per frame
@@ -20,7 +26,9 @@ public class EnemyDamage : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player")) 
         {
-            Destroy (other.gameObject);
+            click.alphaLevel = 1f;
+            playerTouched.Play();
+            //Destroy (other.gameObject);
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class ClickToMove : MonoBehaviour
 {
@@ -13,10 +14,17 @@ public class ClickToMove : MonoBehaviour
 
     public int numberOfRooms = 0;
 
+    public Image damageSprite;
+    public float alphaLevel = 1;
+
+    
+
     void Start()
     {
        mAnimator = GetComponent<Animator>();
        mNavMeshAgent = GetComponent<NavMeshAgent>(); 
+
+       damageSprite.color = new Color ( 1, 1, 1 , alphaLevel);
     }
 
     // Update is called once per frame
@@ -26,7 +34,7 @@ public class ClickToMove : MonoBehaviour
 
         RaycastHit hit;
 
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(1))
         {
             if(Physics.Raycast(ray,out hit,100))
             {
@@ -43,6 +51,12 @@ public class ClickToMove : MonoBehaviour
             mRunning = true;
         }
         mAnimator.SetBool("running", mRunning);
+
+
+
+        
+
+        alphaLevel -= Time.deltaTime * 0.2f;
     }
 
     void OnTriggerEnter (Collider other )

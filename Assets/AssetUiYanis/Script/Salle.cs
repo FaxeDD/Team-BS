@@ -12,18 +12,22 @@ public class Salle: MonoBehaviour
     int currentSalle = 0;
     public GameObject TextQuest;
     public Image CheckImage;
-    float CheckQuest;
+    float CheckQuest = 1f;
 
     private ClickToMove ClickToMove;
-    private Shooting shooting;
+    private ShootBullet ShootBullet;
+
+    public TextMeshProUGUI questTxt;
+
+    public GameObject questObject;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        TextQuest.SetActive(false);
+        //TextQuest.SetActive(false);
         ClickToMove = GameObject.Find("player").GetComponent<ClickToMove>();
-        shooting = GameObject.Find("player").GetComponent<Shooting>();
+        ShootBullet = GameObject.Find("player").GetComponent<ShootBullet>();
     }
 
     // Update is called once per frame
@@ -35,22 +39,30 @@ public class Salle: MonoBehaviour
             currentSalle = SalleMax;
         }
         
+        questTxt.text = "Number of kills " + ShootBullet.NumberOfKills + "/5"; 
+
+        if ( ShootBullet.NumberOfKills >= 5 )
+        {
+            //Debug.Log("Quest accomplished");
+            CheckImage.fillAmount = Mathf.Lerp(CheckImage.fillAmount, CheckQuest , Time.deltaTime*2);
+         if(CheckImage.fillAmount >= 0.9)
+          {
+                CheckImage.fillAmount = 1;
+                StartCoroutine(QuestDissapears());
+                
+          }
+        }
         
        
     }
 
-    public void Quest()
+    IEnumerator QuestDissapears()
     {
-        // a remplacer correspond à un int sur le script du joueur, que le script de la balle fera augmenter dès qu'il touche un enemy
-        if ( shooting.numberOfKills >= 10 )
-        {
-            CheckImage.fillAmount = Mathf.Lerp(CheckImage.fillAmount, CheckQuest, Time.deltaTime*2);
-         if(CheckImage.fillAmount >= 0.9)
-          {
-                CheckImage.fillAmount = 1;
-                
-          }
-        }
+        yield return new WaitForSeconds(2);
+
+        
+
+        questObject.SetActive(false);
     }
     /*public void IncreaseRoom()
     {

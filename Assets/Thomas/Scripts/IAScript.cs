@@ -9,12 +9,15 @@ public class IAScript : MonoBehaviour
     private float distance;
     public float HowClose;
     public Animator animator;
+
+    public AudioSource detectionSound;
     
     private bool EnemiSee = false;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent=this.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        detectionSound = GameObject.Find("enemyDetection").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,6 +27,7 @@ public class IAScript : MonoBehaviour
        
        if(distance <= HowClose)
         {
+            detectionSound.Play();
             agent.SetDestination(player.position);
             EnemiSee = true;
         }

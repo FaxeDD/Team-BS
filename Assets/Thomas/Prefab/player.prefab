@@ -1572,6 +1572,7 @@ GameObject:
   - component: {fileID: 3509420194622882791}
   - component: {fileID: 3509420194622882790}
   - component: {fileID: 3509420194622882809}
+  - component: {fileID: 4066647898979197870}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -1669,6 +1670,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 547e5dff0888ad949b420de6e5e22872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfRooms: 0
+--- !u!114 &4066647898979197870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4355718350568987375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de7b936d555eca54eb560883ed726d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firepoint: {fileID: 0}
+  bulletPrefab: {fileID: 0}
+  bulletForce: 20
 --- !u!1 &4529946036632129227
 GameObject:
   m_ObjectHideFlags: 0
