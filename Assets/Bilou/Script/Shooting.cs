@@ -12,6 +12,8 @@ public Transform Canon;
 
 public Vector3 enemyPosition;
 public float bulletSpeed;
+
+public int numberOfKills = 0;
 void Update()
 {        
     if (Input.GetMouseButtonDown(1))

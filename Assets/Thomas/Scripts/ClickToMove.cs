@@ -11,6 +11,8 @@ public class ClickToMove : MonoBehaviour
 
     private bool mRunning = false;
 
+    public int numberOfRooms = 0;
+
     void Start()
     {
        mAnimator = GetComponent<Animator>();
@@ -41,5 +43,14 @@ public class ClickToMove : MonoBehaviour
             mRunning = true;
         }
         mAnimator.SetBool("running", mRunning);
+    }
+
+    void OnTriggerEnter (Collider other )
+    {
+        if ( other.gameObject.tag == "trigger" )
+        {
+            Debug.Log("trigger works");
+            numberOfRooms += 1;
+        }
     }
 }

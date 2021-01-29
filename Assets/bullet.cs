@@ -23,6 +23,7 @@ public class bullet : MonoBehaviour
         if ( other.gameObject.tag == "Enemy" )
         {
             Destroy(other.gameObject);
+            shooting.numberOfKills += 1;
         }
 
         Destroy(gameObject);

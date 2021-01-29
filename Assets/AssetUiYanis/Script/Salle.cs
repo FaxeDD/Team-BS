@@ -14,31 +14,45 @@ public class Salle: MonoBehaviour
     public Image CheckImage;
     float CheckQuest;
 
+    private ClickToMove ClickToMove;
+    private Shooting shooting;
+    
+
     // Start is called before the first frame update
     void Start()
     {
         TextQuest.SetActive(false);
+        ClickToMove = GameObject.Find("player").GetComponent<ClickToMove>();
+        shooting = GameObject.Find("player").GetComponent<Shooting>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        TextSalle.text = "Salle : " + currentSalle + " / " + SalleMax;
+        TextSalle.text = "Salle : " + ClickToMove.numberOfRooms;
         if( currentSalle >= SalleMax)
         {
             currentSalle = SalleMax;
         }
         
-        CheckImage.fillAmount = Mathf.Lerp(CheckImage.fillAmount, CheckQuest, Time.deltaTime*2);
+        
+       
+    }
+
+    public void Quest()
+    {
+        // a remplacer correspond à un int sur le script du joueur, que le script de la balle fera augmenter dès qu'il touche un enemy
+        if ( shooting.numberOfKills >= 10 )
+        {
+            CheckImage.fillAmount = Mathf.Lerp(CheckImage.fillAmount, CheckQuest, Time.deltaTime*2);
          if(CheckImage.fillAmount >= 0.9)
           {
                 CheckImage.fillAmount = 1;
                 
           }
-       
+        }
     }
-
-    public void IncreaseRoom()
+    /*public void IncreaseRoom()
     {
         currentSalle++;
     }
@@ -62,5 +76,5 @@ public class Salle: MonoBehaviour
              
             }
         
-    }
+    }*/
 }
