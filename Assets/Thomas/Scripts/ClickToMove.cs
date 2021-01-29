@@ -10,6 +10,7 @@ public class ClickToMove : MonoBehaviour
     private Animator mAnimator;
 
     private bool mRunning = false;
+    private bool mShoot = false;
 
     void Start()
     {
@@ -32,6 +33,11 @@ public class ClickToMove : MonoBehaviour
             }
         }
 
+        if(Input.GetMouseButtonDown(1))
+        {
+            
+        }
+
         if(mNavMeshAgent.remainingDistance <= mNavMeshAgent.stoppingDistance)
         {
             mRunning = false;
@@ -41,5 +47,6 @@ public class ClickToMove : MonoBehaviour
             mRunning = true;
         }
         mAnimator.SetBool("running", mRunning);
+        mAnimator.SetBool("Shoot", mShoot);
     }
 }
