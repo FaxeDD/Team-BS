@@ -28,7 +28,7 @@ public class EnemyDamage : MonoBehaviour
         {
             click.alphaLevel = 1f;
             playerTouched.Play();
-            //Destroy (other.gameObject);
+            Destroy (other.gameObject);
         }
     }
 }

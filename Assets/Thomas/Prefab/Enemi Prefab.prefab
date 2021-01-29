@@ -409,6 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HowClose: 6.06
   animator: {fileID: 2256630470245677621}
+  detectionSound: {fileID: 0}
 --- !u!195 &2256630470245677623
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -419,7 +420,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.69
-  m_Speed: 0
+  m_Speed: 4
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 3000
@@ -443,6 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84b23925fc67e4d4cacac544f34bff6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTouched: {fileID: 0}
 --- !u!1 &1610302191239446222
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class ClickToMove : MonoBehaviour
     public int numberOfRooms = 0;
 
     public Image damageSprite;
-    public float alphaLevel = 1;
+    public float alphaLevel = 1f;
 
     
 
@@ -24,6 +24,7 @@ public class ClickToMove : MonoBehaviour
        mAnimator = GetComponent<Animator>();
        mNavMeshAgent = GetComponent<NavMeshAgent>(); 
 
+        alphaLevel = 1f;
        damageSprite.color = new Color ( 1, 1, 1 , alphaLevel);
     }
 
