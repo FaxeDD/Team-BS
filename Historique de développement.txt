@@ -1,0 +1,54 @@
+ Notre idée de base était de partir sur un shooter simple en 3D avec une vue de dessus, mais en y apportant 
+des détails pour complexifier le gameplay. Déjà, le déplacement se fait à la souris avec un système de 
+NavMesh, ce qui demande au joueur de maîtriser le gameplay et de faire preuve de dextérité. Autre détail,
+lorsque le joueur tire, il instantie un projectile qui va droit devant un petit robot qui lui sert d'arme.
+Un viseur laser vient l'aider dans cette tâche, sous la forme d'un tout petit cylindre rouge. Le joueur doit 
+donc gérer le timing de tir et l'orientation du joueur pour réussir à éliminer les ennemis.
+
+ Nous désirions aussi inclure une feature de micro objectif par salle permettant de dévérouiller l'accès à 
+la suivante. Nos nombreux problèmes sur git nous ont poussé à revoir cette ambition à la baisse afin de 
+simplement intégrer une quête à faire sur l'ensemble de la partie. Le jeu n'a donc pas de réel objectif final,
+sinon de se balader de salle en salle et tuer les ennemis présents. La quête vient seulement apporter un 
+sentiment d'accomplissement bien léger par rapport à celui escompté. 
+ Ce n'est pas la seule chose que nous avons eu à revoir. L'intégration de particules, par exemple, a été 
+remplacée elle aussi par une de nos nombreuses sessions de panique par rapport à git. Il en va de même pour
+les shaders, et les décors qui auraient du être plus variés à la base. Le jeu manque globalement de polish,
+puisque environ la moitié du temps ayant été consacré à son développement a été consacrée à une lutte contre
+notre incompétence vis-à-vis de git. 
+
+ A présent, abordons quelques détails techniques. La génération procédurale se fait de la manière suivante :
+Elle est basée sur une map en 2D, dont la forme est aléatoire, sur laquelle viennent s'instantier des prefab 
+de salles eux-aussi totalement aléatoires. Chaque salle comportera un spawner d'ennemis indestructibles afin 
+que la partie puisse durer indéfiniment si le joueur le veut. 
+ L'intelligence artificielle, est plutôt simple. Elle dispose d'un float de portée correspondant à une distance
+sur la map. Si le joueur entre dans cette distance, l'ennemi partira alors à sa poursuite, sans jamais s'arrêter,
+afin que le joueur soit forcé de l'éliminer avant d'entrer dans une prochaine salle, sinon les ennemis vont 
+s'entasser. Le joueur mourrant dès le contact au corps à corps, il lui est primordial de bien gérer ces micro
+duels, en abattant l'ennemi avant qu'il le détecte par exemple. Sa vitesse étant à peine supérieure à celle 
+de l'ennmi, il doit faire attention car la moindre erreur peut-être fatale.
+ Le système de tir, lui est assez simple, bien qu'ayant subi quelques modifications. Le premier système, 
+qui a été gardé pendant un long moment, était que le joueur devait cliquer directement sur l'ennemi pour instantier
+une balle. Lorsque qu'il clique sur l'ennemi, un raycast vient récupérer l'information de sa position,
+information que récupère directement une balle instantiée vers cette position. Nous avons changé le système
+rapport à des problèmes visuels, et aussi car il correspondait moins bien avec notre idée de départ.
+ Enfin, l'UI. Rapport à nos compétences respectives, et à la prédisposition d'un d'entre nous pour cela, un
+gros travail a été fourni sur l'UI, qui a du être revu à la baisse à maintes reprises à cause de quelques
+soucis de git, une fois encore. L'UI de base comportait un compteur d'ennemis tués, que nous avons ensuite 
+décidé de supprimer au profit d'un petit encadré en bas à gauche de l'écran qui montrait le modèle 3D de 
+l'ennemi après que le joueur lui ai tiré dessus, en complémentarité avec le système de raycast. Finalement 
+nous n'avons pu garder que l'essentiel : Un compteur de salle qui donne une idée de la progression du joueur,
+lui indiquant en quelque sorte si il peut battre son record personnel, puisque le compteur ajoute un au nombre
+de salles parcourus dès que le joueur entre dans une salle. Cela rejoint les spawners indestructibles, et l'idée
+de jeu infini. 
+
+ Le projet nous a donc causé très peu de soucis de code, chacun d'entre nous ayant réussi à terminer les tâches
+que nous nous sommes réparties dans les délais prévus pour cela. C'est réellement notre incompréhension de git
+qui a été un frein énorme dans notre progression. Nous avons du effectuer un reboot du développement, plusieurs
+retours en arrière, nous obligeant à répéter des tâches déjà effectuées, et nous empêchant de polish le 
+jeu et d'y ajouter d'avantage de "juice", pour à la place essayer de le terminer de nouveau. Finalement, après
+BEAUCOUP TROP de rebondissements, nous arrivons sur une version du jeu finie sur le plan technique, mais pas
+sur le plan de la prise en main, de la jouabilité, du fun. 
+
+Lien d'un record effectué sur le fil du rasoir :
+
+https://www.youtube.com/watch?v=mShQOAAiEwE&ab_channel=ThomasOssatte

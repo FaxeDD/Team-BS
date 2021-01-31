@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -906,6 +906,7 @@ GameObject:
   m_Component:
   - component: {fileID: 989464391}
   - component: {fileID: 989464392}
+  - component: {fileID: 989464393}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -1026,6 +1027,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &989464393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989464390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a26a6bd34adda4c940c48b6272911f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1061112266 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ce70dd542d6ee6242973441c9b6fcda3,
@@ -1652,7 +1665,7 @@ PrefabInstance:
     - target: {fileID: 6132992256313068595, guid: c046b487f52d90845822f3a5b25de1d6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6132992256313068595, guid: c046b487f52d90845822f3a5b25de1d6,
         type: 3}
